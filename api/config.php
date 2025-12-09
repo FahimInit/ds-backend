@@ -1,20 +1,24 @@
 <?php
 // PHP Script: config.php
 
-// Define constants for database connection
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root'); 
-define('DB_PASSWORD', '');     
-define('DB_NAME', 'deepsolution_db');
+// --- DATABASE CONNECTION CONFIGURATION ---
+// Use Environment Variables (set on Railway) OR fallback to local defaults (XAMPP).
+$db_server = getenv('DB_SERVER') ?: 'localhost';
+$db_user   = getenv('DB_USERNAME') ?: 'root'; 
+$db_pass   = getenv('DB_PASSWORD') ?: ''; 
+$db_name   = getenv('DB_NAME') ?: 'deepsolution_db';
+$db_port   = getenv('DB_PORT') ?: 3306; // Railway sets this, 3306 is MySQL default
 
 // Function to establish a new database connection
 function connectDB() {
-    $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+    global $db_server, $db_user, $db_pass, $db_name, $db_port;
+    
+    // Connect using variables
+    $conn = new mysqli($db_server, $db_user, $db_pass, $db_name, $db_port);
     
     // Check connection
     if ($conn->connect_error) {
         http_response_code(500);
-        // Do not die with JSON here, return the connection error message
         die(json_encode(["success" => false, "message" => "Database connection failed: " . $conn->connect_error]));
     }
     
@@ -22,25 +26,24 @@ function connectDB() {
     return $conn;
 }
 
-// Function to set up headers for CORS and JSON response
+
+// --- CORS AND HEADER CONFIGURATION ---
 function setHeaders() {
-    // 1. Set up of the origin of the React development server.
-    $react_dev_origin = 'http://192.168.0.101:5173';
-    header("Access-Control-Allow-Origin: $react_dev_origin"); 
+    // Railway URL or your Vercel domain. Using '*' is safest for deployment but less secure.
+    // Replace '*' with your Vercel domain (e.g., 'https://deepsolution.store') once confirmed.
+    $allowed_origin = getenv('ALLOWED_ORIGIN') ?: '*'; 
     
-    // 2. Necessary HTTP methods
-    header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
-    
-    // 3. Necessary headers
+    header("Access-Control-Allow-Origin: $allowed_origin"); 
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
     header("Access-Control-Allow-Headers: Content-Type, Authorization");
     
-    // 4. Peflight requests (OPTIONS method) sent by browsers
+    // Peflight requests (OPTIONS method) sent by browsers
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         http_response_code(200);
         exit(); 
     }
     
-    // 5. Response will be JSON
+    // Response will be JSON
     header("Content-Type: application/json; charset=UTF-8");
 }
 ?>
