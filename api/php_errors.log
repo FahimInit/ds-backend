@@ -1,0 +1,59 @@
+[26-Oct-2025 21:24:04 Europe/Berlin] updateSetting.php - Received raw data: {"key_name":"content","key_value":"test"}
+[26-Oct-2025 21:24:04 Europe/Berlin] updateSetting.php - Processing update for key: content
+[26-Oct-2025 21:24:04 Europe/Berlin] updateSetting.php - SQL Execute successful for key: content
+[26-Oct-2025 21:24:23 Europe/Berlin] updateSetting.php - Received raw data: {"key_name":"content","key_value":"Discover the proven strategies that helped over 10,000 entrepreneurs transform their businesses in the digital age. Get actionable insights that deliver real results."}
+[26-Oct-2025 21:24:23 Europe/Berlin] updateSetting.php - Processing update for key: content
+[26-Oct-2025 21:24:23 Europe/Berlin] updateSetting.php - SQL Execute successful for key: content
+[26-Oct-2025 21:33:27 Europe/Berlin] updateSetting.php - Received raw data: {"key_name":"preview_content","key_value":"test"}
+[26-Oct-2025 21:33:27 Europe/Berlin] updateSetting.php - Processing update for key: preview_content
+[26-Oct-2025 21:33:27 Europe/Berlin] updateSetting.php - SQL Execute successful for key: preview_content
+[26-Oct-2025 21:34:30 Europe/Berlin] updateSetting.php - Received raw data: {"key_name":"preview_content","key_value":"In today's rapidly evolving business landscape, the companies that thrive are those that embrace digital transformation not as a one-time project, but as a fundamental shift in mindset..."}
+[26-Oct-2025 21:34:30 Europe/Berlin] updateSetting.php - Processing update for key: preview_content
+[26-Oct-2025 21:34:30 Europe/Berlin] updateSetting.php - SQL Execute successful for key: preview_content
+[27-Oct-2025 18:38:28 Europe/Berlin] updateSetting.php - Received raw data: {"key_name":"price","key_value":"30.99"}
+[27-Oct-2025 18:38:28 Europe/Berlin] updateSetting.php - Processing update for key: price
+[27-Oct-2025 18:38:28 Europe/Berlin] updateSetting.php - SQL Execute successful for key: price
+[27-Oct-2025 18:49:08 Europe/Berlin] updateSetting.php - Received: {"key_name":"price","key_value":"30.99"}
+[27-Oct-2025 18:49:08 Europe/Berlin] updateSetting.php - Processing: key=price
+[27-Oct-2025 18:49:08 Europe/Berlin] updateSetting.php - Binding as double/string (d, s)
+[27-Oct-2025 18:49:08 Europe/Berlin] updateSetting.php - Success (0 rows affected) for key: price
+[04-Dec-2025 13:50:37 Europe/Berlin] updateSetting.php - Received: {"key_name":"total_revenue","key_value":"0.00"}
+[04-Dec-2025 13:50:37 Europe/Berlin] updateSetting.php - Processing: key=total_revenue
+[04-Dec-2025 13:50:37 Europe/Berlin] updateSetting.php - Binding as double/string (d, s)
+[04-Dec-2025 13:50:37 Europe/Berlin] updateSetting.php - Success (updated rows) for key: total_revenue
+[04-Dec-2025 13:50:37 Europe/Berlin] updateSetting.php - Received: {"key_name":"total_sales","key_value":"0"}
+[04-Dec-2025 13:50:37 Europe/Berlin] updateSetting.php - Processing: key=total_sales
+[04-Dec-2025 13:50:37 Europe/Berlin] updateSetting.php - Binding as double/string (d, s)
+[04-Dec-2025 13:50:37 Europe/Berlin] updateSetting.php - Success (updated rows) for key: total_sales
+[04-Dec-2025 13:51:11 Europe/Berlin] updateSetting.php - Received: {"key_name":"is_offer_enabled","key_value":"true"}
+[04-Dec-2025 13:51:11 Europe/Berlin] updateSetting.php - Processing: key=is_offer_enabled
+[04-Dec-2025 13:51:11 Europe/Berlin] updateSetting.php - Binding as string/string (s, s)
+[04-Dec-2025 13:51:11 Europe/Berlin] updateSetting.php - Success (updated rows) for key: is_offer_enabled
+[04-Dec-2025 13:51:59 Europe/Berlin] updateSetting.php - Received: {"key_name":"offer_end_time","key_value":"2026-01-01T09:00"}
+[04-Dec-2025 13:51:59 Europe/Berlin] updateSetting.php - Processing: key=offer_end_time
+[04-Dec-2025 13:51:59 Europe/Berlin] updateSetting.php - Binding as string/string (s, s)
+[04-Dec-2025 13:51:59 Europe/Berlin] updateSetting.php - Success (updated rows) for key: offer_end_time
+[04-Dec-2025 13:52:17 Europe/Berlin] updateSetting.php - Received: {"key_name":"price","key_value":"300.99"}
+[04-Dec-2025 13:52:17 Europe/Berlin] updateSetting.php - Processing: key=price
+[04-Dec-2025 13:52:17 Europe/Berlin] updateSetting.php - Binding as double/string (d, s)
+[04-Dec-2025 13:52:17 Europe/Berlin] updateSetting.php - Success (updated rows) for key: price
+[04-Dec-2025 13:52:22 Europe/Berlin] updateSetting.php - Received: {"key_name":"offer_price","key_value":"190.99"}
+[04-Dec-2025 13:52:22 Europe/Berlin] updateSetting.php - Processing: key=offer_price
+[04-Dec-2025 13:52:22 Europe/Berlin] updateSetting.php - Binding as double/string (d, s)
+[04-Dec-2025 13:52:22 Europe/Berlin] updateSetting.php - Success (updated rows) for key: offer_price
+[04-Dec-2025 13:55:09 Europe/Berlin] updateSetting.php - Received: {"key_name":"is_offer_enabled","key_value":"false"}
+[04-Dec-2025 13:55:09 Europe/Berlin] updateSetting.php - Processing: key=is_offer_enabled
+[04-Dec-2025 13:55:09 Europe/Berlin] updateSetting.php - Binding as string/string (s, s)
+[04-Dec-2025 13:55:09 Europe/Berlin] updateSetting.php - Success (updated rows) for key: is_offer_enabled
+[04-Dec-2025 14:09:37 Europe/Berlin] updateSetting.php - Received: {"key_name":"total_revenue","key_value":"0.00"}
+[04-Dec-2025 14:09:37 Europe/Berlin] updateSetting.php - Received: {"key_name":"total_sales","key_value":"0"}
+[04-Dec-2025 14:09:37 Europe/Berlin] updateSetting.php - Processing: key=total_revenue
+[04-Dec-2025 14:09:37 Europe/Berlin] updateSetting.php - Processing: key=total_sales
+[04-Dec-2025 14:09:37 Europe/Berlin] updateSetting.php - Binding as double/string (d, s)
+[04-Dec-2025 14:09:37 Europe/Berlin] updateSetting.php - Binding as double/string (d, s)
+[04-Dec-2025 14:09:37 Europe/Berlin] updateSetting.php - Success (updated rows) for key: total_revenue
+[04-Dec-2025 14:09:37 Europe/Berlin] updateSetting.php - Success (updated rows) for key: total_sales
+[04-Dec-2025 14:14:43 Europe/Berlin] updateSetting.php - Received: {"key_name":"is_offer_enabled","key_value":"true"}
+[04-Dec-2025 14:14:43 Europe/Berlin] updateSetting.php - Processing: key=is_offer_enabled
+[04-Dec-2025 14:14:43 Europe/Berlin] updateSetting.php - Binding as string/string (s, s)
+[04-Dec-2025 14:14:43 Europe/Berlin] updateSetting.php - Success (updated rows) for key: is_offer_enabled
