@@ -1,7 +1,6 @@
 <?php
 // PHP Script: downloadOrders.php - Exports all order data to CSV
 require_once 'config.php';
-// No setHeaders() call needed for file download
 
 $conn = connectDB();
 
@@ -26,8 +25,6 @@ header('Content-Type: text/csv; charset=utf-8');
 header('Content-Disposition: attachment; filename="orders_export_' . date('Y-m-d') . '.csv"'); 
 
 $output = fopen("php://output", "w");
-// Optional: Add UTF-8 BOM
-// fwrite($output, "\xEF\xBB\xBF"); 
 
 // Define column headers
 $headers = [

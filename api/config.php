@@ -7,7 +7,7 @@ $db_server = getenv('DB_SERVER') ?: 'localhost';
 $db_user   = getenv('DB_USERNAME') ?: 'root'; 
 $db_pass   = getenv('DB_PASSWORD') ?: ''; 
 $db_name   = getenv('DB_NAME') ?: 'deepsolution_db';
-$db_port   = getenv('DB_PORT') ?: 3306; // Railway sets this, 3306 is MySQL default
+$db_port   = getenv('DB_PORT') ?: 3306;
 
 // Function to establish a new database connection
 function connectDB() {
@@ -29,9 +29,7 @@ function connectDB() {
 
 // --- CORS AND HEADER CONFIGURATION ---
 function setHeaders() {
-    // Railway URL or your Vercel domain. Using '*' is safest for deployment but less secure.
-    // Replace '*' with your Vercel domain (e.g., 'https://deepsolution.store') once confirmed.
-    $allowed_origin = getenv('ALLOWED_ORIGIN') ?: '*'; 
+    $allowed_origin = getenv('ALLOWED_ORIGIN') ?: '*'; //djkaf
     
     header("Access-Control-Allow-Origin: $allowed_origin"); 
     header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");

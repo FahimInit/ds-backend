@@ -17,7 +17,7 @@ $quote = $data['review'];
 $email = $data['email'];
 $name = isset($data['name']) ? $data['name'] : '';
 $displayName = isset($data['displayName']) ? $data['displayName'] : 'Anonymous';
-$rating = (int)$data['rating']; // Ensure rating is an integer
+$rating = (int)$data['rating'];
 
 // Validate rating (basic check)
 if ($rating < 1 || $rating > 5) {
@@ -41,15 +41,15 @@ $stmt->bind_param("ssssi", $quote, $name, $email, $displayName, $rating);
 // Execute the statement
 if ($stmt->execute()) {
     $new_id = $stmt->insert_id;
-    http_response_code(201); // Created
+    http_response_code(201);
     echo json_encode([
         "success" => true,
         "message" => "Review added successfully.",
         "id" => $new_id
     ]);
 } else {
-    http_response_code(500); // Internal Server Error
-    error_log("SQL Execute failed: " . $stmt->error); // Log the error
+    http_response_code(500);
+    error_log("SQL Execute failed: " . $stmt->error);
     echo json_encode(["success" => false, "message" => "Execution failed: " . $stmt->error]);
 }
 

@@ -15,8 +15,6 @@ if ($result && $result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         
         // --- CRITICAL SECURITY CHECK ---
-        // Do NOT send the hashed password to the frontend.
-        // React doesn't need it, and exposing it is a security risk.
         if ($row['key_name'] === 'admin_password') {
             continue; 
         }

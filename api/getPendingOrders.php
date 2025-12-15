@@ -3,7 +3,6 @@ require_once 'config.php';
 setHeaders();
 $conn = connectDB();
 
-// Added payment_method to SELECT
 $sql = "SELECT id, order_id_ref, product_name, price, payment_method, created_at, buyer_name, buyer_email, buyer_phone, trx_id 
         FROM orders 
         WHERE status = 'pending' 

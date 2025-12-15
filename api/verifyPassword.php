@@ -29,8 +29,7 @@ if ($result && $result->num_rows > 0) {
         echo json_encode(["success" => false, "message" => "Incorrect password."]);
     }
 } else {
-    // If no password is set in DB, block access or allow (depending on policy). 
-    // Blocking is safer.
+    // If no password is set in DB, block access or allow (depending on policy).
     http_response_code(403);
     echo json_encode(["success" => false, "message" => "No admin password configured in database."]);
 }
