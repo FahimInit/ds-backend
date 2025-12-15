@@ -29,7 +29,7 @@ function connectDB() {
 
 // --- CORS AND HEADER CONFIGURATION ---
 function setHeaders() {
-    $allowed_origin = getenv('ALLOWED_ORIGIN') ?: '*'; //djkaf
+    $allowed_origin = getenv('ALLOWED_ORIGIN') ?: '*';
     
     header("Access-Control-Allow-Origin: $allowed_origin"); 
     header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
