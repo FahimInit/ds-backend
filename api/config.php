@@ -2,52 +2,43 @@
 // PHP Script: config.php
 
 // --- DATABASE CONNECTION CONFIGURATION ---
-// Use Environment Variables (set on Railway) OR fallback to local defaults (XAMPP).
 $db_server = getenv('DB_SERVER') ?: 'localhost';
 $db_user   = getenv('DB_USERNAME') ?: 'root'; 
-<<<<<<< HEAD
 $db_pass   = getenv('DB_PASSWORD') ?: ''; 
 $db_name   = getenv('DB_NAME') ?: 'deepsolution_db';
 $db_port   = getenv('DB_PORT') ?: 3306;
-=======
-$db_pass   = getenv('DB_PASSWORD') ?: 'ZnIQToaUXfwMeyjJsvoNNmzYUKjcQzDo'; 
-$db_name   = getenv('DB_NAME') ?: 'railway';
-$db_port   = getenv('DB_PORT') ?: 3306; // Railway sets this, 3306 is MySQL default
->>>>>>> parent of 9278577 (database error handleing)
 
-// Function to establish a new database connection
 function connectDB() {
     global $db_server, $db_user, $db_pass, $db_name, $db_port;
     
-    // Connect using variables
-    $conn = new mysqli($db_server, $db_user, $db_pass, $db_name, $db_port);
-    
-    // Check connection
-    if ($conn->connect_error) {
-        http_response_code(500);
-        die(json_encode(["success" => false, "message" => "Database connection failed: " . $conn->connect_error]));
-    }
-    
-    $conn->set_charset("utf8mb4");
-    return $conn;
-}
+    // Suppress errors during connection to prevent leaking sensitive info
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+    try {
+        $conn = new mysqli($db_server, $db_user, $db_pass, $db_name, $db_port);
+        $conn->set_charset("utf8mb4");
+        return $conn;
+    } catch (mysqli_sql_exception $e) {
+        // Log the error internally but return a generic JSON error to the user
+        error_log("DB Connection Failed: " . $e->getMessage());
+        http_response_code(500);
+        die(json_encode(["success" => false, "message" => "Database connection error."]));
+    }
+}
 
 // --- CORS AND HEADER CONFIGURATION ---
 function setHeaders() {
-    $allowed_origin = getenv('ALLOWED_ORIGIN') ?: '*';
+    // SECURITY UPDATE: Prefer the specific domain over wildcard
+    $allowed_origin = getenv('ALLOWED_ORIGIN') ?: 'https://www.deepsolution.store';
     
     header("Access-Control-Allow-Origin: $allowed_origin"); 
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");
-    
-    // Peflight requests (OPTIONS method) sent by browsers
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS"); // Limit methods to what you use
+    header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+    header("Content-Type: application/json; charset=UTF-8");
+
+    // Handle Preflight Request
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         http_response_code(200);
         exit(); 
     }
-    
-    // Response will be JSON
-    header("Content-Type: application/json; charset=UTF-8");
 }
-?>
