@@ -5,9 +5,15 @@
 // Use Environment Variables (set on Railway) OR fallback to local defaults (XAMPP).
 $db_server = getenv('DB_SERVER') ?: 'localhost';
 $db_user   = getenv('DB_USERNAME') ?: 'root'; 
+<<<<<<< HEAD
 $db_pass   = getenv('DB_PASSWORD') ?: ''; 
 $db_name   = getenv('DB_NAME') ?: 'deepsolution_db';
 $db_port   = getenv('DB_PORT') ?: 3306;
+=======
+$db_pass   = getenv('DB_PASSWORD') ?: 'ZnIQToaUXfwMeyjJsvoNNmzYUKjcQzDo'; 
+$db_name   = getenv('DB_NAME') ?: 'railway';
+$db_port   = getenv('DB_PORT') ?: 3306; // Railway sets this, 3306 is MySQL default
+>>>>>>> parent of 9278577 (database error handleing)
 
 // Function to establish a new database connection
 function connectDB() {
